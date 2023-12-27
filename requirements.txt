@@ -1,0 +1,3 @@
+requests==2.26.0
+python-telegram-bot==19.8
+asyncio==3.4.3
