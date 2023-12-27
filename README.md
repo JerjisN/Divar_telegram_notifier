@@ -22,5 +22,10 @@ This Python script checks for new car advertisements on Divar using its API and 
     ```bash
     python divar_telegram_notifier.py
     ```
+4. After running the script, open your web browser and visit the following link to search for car advertisements in your city:
 
+    [Divar Car Advertisements](https://divar.ir/v8/web-search/[Your City]/car/renault/pars/....
+   
 The script will check for new ads every 5 seconds and send notifications to your Telegram chat for any new ads found.
+
+
