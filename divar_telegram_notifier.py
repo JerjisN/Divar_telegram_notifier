@@ -13,14 +13,24 @@ bot = Bot(token=TOKEN)
 # API endpoint for Divar to fetch car advertisements 
 url = "https://api.divar.ir/v8/web-search/[Your City]/Link after city..."
 
+# This function retrieves new advertisements from a given URL
 def get_new_ads(url):
-    # Make a GET request to the Divar API to fetch car advertisements
+    # Send a GET request to the URL
     response = requests.get(url)
-    data = response.json()
-    
-    # Extract the list of advertisements from the response data
+    try:
+        # Try to parse the response as JSON
+        data = response.json()
+    except json.decoder.JSONDecodeError:
+        # If the response cannot be parsed as JSON, print an error message and the response content
+        print("Invalid JSON")
+        print("Response content:", response.text)
+        # Return an empty list because no ads could be retrieved
+        return []
+    # Extract the list of advertisements from the JSON data
     ads = data['web_widgets']['post_list']
+    # Return the list of advertisements
     return ads
+
 
 # Define old_ads as a global variable to keep track of previous advertisements
 global old_ads
